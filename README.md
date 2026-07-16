@@ -1,56 +1,180 @@
-# Multi-Tier Employee Management System
+# Employee Management Multi-Tier Application
 
-## Project Overview
+A containerized multi-tier Employee Management application built using **Docker Compose** and deployed on **AWS EC2**. The application consists of a frontend, a Flask REST API backend, and a MySQL database, demonstrating modern DevOps deployment practices.
 
-This project is a multi-tier web application built using Docker Compose. It consists of three containers:
-
-- Frontend (Nginx + HTML + JavaScript)
-- Backend (Flask REST API)
-- MySQL Database
-
-The frontend communicates with the Flask backend, and the backend retrieves employee data from the MySQL database.
+---
 
 ## Technologies Used
 
+- AWS EC2 (Ubuntu)
 - Docker
 - Docker Compose
-- Nginx
+- Python
 - Flask
-- MySQL
-- HTML
+- MySQL 8
+- HTML5
+- CSS3
 - JavaScript
-- Git
-- GitHub
+- Git & GitHub
+
+---
 
 ## Project Architecture
 
-Browser
-↓
-Nginx Frontend
-↓
-Flask Backend API
-↓
-MySQL Database
+```
+                User
+                 │
+                 ▼
+        Frontend (Nginx)
+                 │
+                 ▼
+      Flask REST API Backend
+                 │
+                 ▼
+          MySQL Database
+```
+
+---
 
 ## Features
 
-- View employee details
-- REST API integration
-- Docker networking
-- Multi-container deployment
-- Database initialization using SQL script
+- Multi-tier application architecture
+- Docker containerization
+- Docker Compose orchestration
+- Flask REST API
+- MySQL database integration
+- Dynamic employee data retrieval
+- AWS EC2 deployment
+- Container networking using Docker Compose
 
-## Run the Project
+---
 
-```bash
-docker compose up --build
+## Project Structure
+
+```
+employee-management-docker/
+│
+├── Frontend/
+│   ├── index.html
+│   └── Dockerfile
+│
+├── Backend/
+│   ├── app.py
+│   ├── requirements.txt
+│   └── Dockerfile
+│
+├── Database/
+│   └── init.sql
+│
+├── docker-compose.yml
+└── README.md
 ```
 
-Open:
+---
 
-- Frontend: http://localhost
-- Backend API: http://localhost:5000/employees
+## API Endpoint
+
+### Get Employee Details
+
+```
+GET /employees
+```
+
+### Sample Response
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Rithick",
+    "department": "DevOps"
+  },
+  {
+    "id": 2,
+    "name": "Rahul",
+    "department": "Developer"
+  },
+  {
+    "id": 3,
+    "name": "Priya",
+    "department": "Testing"
+  }
+]
+```
+
+---
+
+## Running the Project
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/RITHICK861/employee-management-docker.git
+```
+
+### Navigate to the Project
+
+```bash
+cd employee-management-docker
+```
+
+### Build and Start Containers
+
+```bash
+docker compose up -d --build
+```
+
+### Access the Application
+
+```
+http://localhost
+```
+
+For AWS deployment:
+
+```
+http://<EC2-PUBLIC-IP>
+```
+
+---
+
+## Docker Services
+
+| Service | Technology | Port |
+|----------|------------|------|
+| Frontend | Nginx | 80 |
+| Backend | Flask | 5000 |
+| Database | MySQL 8 | 3306 |
+
+---
+
+## Skills Demonstrated
+
+- Docker Image Creation
+- Multi-Container Applications
+- Docker Compose
+- REST API Development
+- MySQL Integration
+- AWS EC2 Deployment
+- Container Networking
+- Git Version Control
+- GitHub Repository Management
+
+---
+
+## Future Enhancements
+
+- Jenkins CI/CD Pipeline
+- Nginx Reverse Proxy
+- HTTPS with SSL
+- Docker Hub Integration
+- AWS Application Load Balancer
+- Monitoring with Prometheus and Grafana
+
+---
 
 ## Author
 
-Rithick km
+**Rithick K M**
+
+GitHub: https://github.com/RITHICK861
