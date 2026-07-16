@@ -1,0 +1,24 @@
+services:
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+    volumes:
+      - ./Database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3307:3306"
+
+  backend:
+    build: ./Backend
+    depends_on:
+      - mysql
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build: ./Frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
