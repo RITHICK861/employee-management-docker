@@ -1,62 +1,130 @@
-# Employee Management Multi-Tier Application
+Employee Management Multi-Tier Application
 
-A containerized multi-tier Employee Management application built using **Docker Compose** and deployed on **AWS EC2**. The application consists of a frontend, a Flask REST API backend, and a MySQL database, demonstrating modern DevOps deployment practices.
-
----
-
-## Technologies Used
-
-- AWS EC2 (Ubuntu)
-- Docker
-- Docker Compose
-- Python
-- Flask
-- MySQL 8
-- HTML5
-- CSS3
-- JavaScript
-- Git & GitHub
+A containerized **Employee Management System** built using **Docker Compose** and deployed on **AWS EC2**. This project demonstrates a complete multi-tier architecture where the frontend communicates with a Flask REST API, which interacts with a MySQL database running in separate Docker containers.
 
 ---
 
-## Project Architecture
+ Project Overview
 
+This project showcases modern DevOps deployment practices by separating the application into three independent containers:
+
+- 🌐 Frontend (Nginx + HTML + CSS + JavaScript)
+- ⚙️ Backend (Python Flask REST API)
+- 🗄️ MySQL Database
+
+All services are orchestrated using **Docker Compose** and deployed on an **AWS EC2 Ubuntu** instance.
+
+---
+
+ Architecture
+
+
+                          Employee Management Application
+
+                              +----------------------+
+                              |        User          |
+                              |      (Browser)       |
+                              +----------+-----------+
+                                         |
+                                 HTTP Request (80)
+                                         |
+                                         ▼
+                  +---------------------------------------+
+                  |        AWS EC2 (Ubuntu Server)        |
+                  |       Docker + Docker Compose         |
+                  +---------------------------------------+
+                                │
+         ---------------------------------------------------------
+         │                        │                             │
+         ▼                        ▼                             ▼
++------------------+     +--------------------+      +----------------------+
+| Frontend         |     | Backend            |      | MySQL Database       |
+| Nginx            | --> | Flask REST API     | -->  | MySQL 8              |
+| HTML             |     | Python             |      | companydb            |
+| CSS              |     | mysql-connector    |      | employees table      |
+| JavaScript       |     | Port:5000          |      | Port:3306            |
+| Port:80          |     +--------------------+      +----------------------+
 ```
-                User
-                 │
-                 ▼
-        Frontend (Nginx)
-                 │
-                 ▼
-      Flask REST API Backend
-                 │
-                 ▼
-          MySQL Database
+
+---
+
+# 🔄 Application Workflow
+
+```text
+User
+   │
+   ▼
+Open EC2 Public IP
+   │
+   ▼
+Nginx serves Frontend
+   │
+   ▼
+Click "Load Employees"
+   │
+   ▼
+JavaScript sends GET request
+   │
+   ▼
+Flask REST API (/employees)
+   │
+   ▼
+MySQL Database
+   │
+   ▼
+Employee Records
+   │
+   ▼
+JSON Response
+   │
+   ▼
+Employees displayed in Browser
 ```
 
 ---
 
-## Features
+ Features
 
-- Multi-tier application architecture
-- Docker containerization
-- Docker Compose orchestration
+- Multi-Tier Architecture
+- Docker Containerization
+- Docker Compose Orchestration
 - Flask REST API
-- MySQL database integration
-- Dynamic employee data retrieval
-- AWS EC2 deployment
-- Container networking using Docker Compose
+- MySQL Database Integration
+- Dynamic Employee Data Retrieval
+- AWS EC2 Deployment
+- Container Networking
+- RESTful API Communication
 
 ---
 
-## Project Structure
+ Technologies Used
 
-```
+| Technology | Purpose |
+|------------|---------|
+| AWS EC2 | Cloud Hosting |
+| Ubuntu | Operating System |
+| Docker | Containerization |
+| Docker Compose | Container Orchestration |
+| Nginx | Frontend Web Server |
+| Python | Backend Language |
+| Flask | REST API Framework |
+| MySQL 8 | Database |
+| HTML5 | Frontend |
+| CSS3 | Styling |
+| JavaScript | Dynamic UI |
+| Git & GitHub | Version Control |
+
+---
+
+ Project Structure
+
+```text
 employee-management-docker/
 │
 ├── Frontend/
 │   ├── index.html
-│   └── Dockerfile
+│   ├── Dockerfile
+│   └── nginx.conf
 │
 ├── Backend/
 │   ├── app.py
@@ -72,11 +140,11 @@ employee-management-docker/
 
 ---
 
-## API Endpoint
+ API Endpoint
 
-### Get Employee Details
+## Get Employee Details
 
-```
+```http
 GET /employees
 ```
 
@@ -104,33 +172,37 @@ GET /employees
 
 ---
 
-## Running the Project
+ Running the Project
 
-### Clone the Repository
+### Clone Repository
 
 ```bash
 git clone https://github.com/RITHICK861/employee-management-docker.git
 ```
 
-### Navigate to the Project
+### Navigate
 
 ```bash
 cd employee-management-docker
 ```
 
-### Build and Start Containers
+### Build & Run
 
 ```bash
 docker compose up -d --build
 ```
 
-### Access the Application
+---
+
+ Access Application
+
+### Local
 
 ```
 http://localhost
 ```
 
-For AWS deployment:
+### AWS EC2
 
 ```
 http://<EC2-PUBLIC-IP>
@@ -138,43 +210,44 @@ http://<EC2-PUBLIC-IP>
 
 ---
 
-## Docker Services
+ Docker Services
 
-| Service | Technology | Port |
-|----------|------------|------|
-| Frontend | Nginx | 80 |
-| Backend | Flask | 5000 |
-| Database | MySQL 8 | 3306 |
+| Service | Technology | Port | Description |
+|----------|------------|------|-------------|
+| Frontend | Nginx | 80 | Serves the web application |
+| Backend | Flask | 5000 | REST API |
+| Database | MySQL 8 | 3306 | Stores employee data |
 
 ---
 
-## Skills Demonstrated
+ Skills Demonstrated
 
-- Docker Image Creation
-- Multi-Container Applications
+- Docker
 - Docker Compose
+- Multi-Container Applications
 - REST API Development
 - MySQL Integration
 - AWS EC2 Deployment
 - Container Networking
-- Git Version Control
-- GitHub Repository Management
+- Linux Administration
+- Git & GitHub
 
 ---
 
-## Future Enhancements
+ Future Enhancements
 
 - Jenkins CI/CD Pipeline
-- Nginx Reverse Proxy
-- HTTPS with SSL
+- HTTPS using SSL
 - Docker Hub Integration
 - AWS Application Load Balancer
-- Monitoring with Prometheus and Grafana
+- Monitoring with Prometheus & Grafana
 
 ---
 
-## Author
+ Author
 
 **Rithick K M**
 
 GitHub: https://github.com/RITHICK861
+
+---
