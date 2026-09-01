@@ -1,10 +1,10 @@
-Employee Management Multi-Tier Application
+# 🚀 Employee Management Multi-Tier Application
 
 A containerized **Employee Management System** built using **Docker Compose** and deployed on **AWS EC2**. This project demonstrates a complete multi-tier architecture where the frontend communicates with a Flask REST API, which interacts with a MySQL database running in separate Docker containers.
 
 ---
 
- Project Overview
+## 📌 Project Overview
 
 This project showcases modern DevOps deployment practices by separating the application into three independent containers:
 
@@ -16,9 +16,9 @@ All services are orchestrated using **Docker Compose** and deployed on an **AWS 
 
 ---
 
- Architecture
+# 🏗️ Architecture
 
-
+```text
                           Employee Management Application
 
                               +----------------------+
@@ -83,7 +83,7 @@ Employees displayed in Browser
 
 ---
 
- Features
+# ✨ Features
 
 - Multi-Tier Architecture
 - Docker Containerization
@@ -97,7 +97,7 @@ Employees displayed in Browser
 
 ---
 
- Technologies Used
+# 🛠️ Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
@@ -116,7 +116,7 @@ Employees displayed in Browser
 
 ---
 
- Project Structure
+# 📂 Project Structure
 
 ```text
 employee-management-docker/
@@ -140,7 +140,7 @@ employee-management-docker/
 
 ---
 
- API Endpoint
+# 🔗 API Endpoint
 
 ## Get Employee Details
 
@@ -172,7 +172,7 @@ GET /employees
 
 ---
 
- Running the Project
+# ▶️ Running the Project
 
 ### Clone Repository
 
@@ -194,7 +194,7 @@ docker compose up -d --build
 
 ---
 
- Access Application
+# 🌐 Access Application
 
 ### Local
 
@@ -210,7 +210,7 @@ http://<EC2-PUBLIC-IP>
 
 ---
 
- Docker Services
+# 🐳 Docker Services
 
 | Service | Technology | Port | Description |
 |----------|------------|------|-------------|
@@ -220,7 +220,7 @@ http://<EC2-PUBLIC-IP>
 
 ---
 
- Skills Demonstrated
+# 💡 Skills Demonstrated
 
 - Docker
 - Docker Compose
@@ -234,7 +234,7 @@ http://<EC2-PUBLIC-IP>
 
 ---
 
- Future Enhancements
+# 🚀 Future Enhancements
 
 - Jenkins CI/CD Pipeline
 - HTTPS using SSL
@@ -244,7 +244,7 @@ http://<EC2-PUBLIC-IP>
 
 ---
 
- Author
+# 👨‍💻 Author
 
 **Rithick K M**
 
